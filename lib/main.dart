@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:rental_django_frontend/rental_belongings.dart';
 import 'package:rental_django_frontend/rental_borrowings.dart';
 import 'package:rental_django_frontend/rental_friends.dart';
+import 'package:rental_django_frontend/settings.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,10 +17,11 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   int _selectedIndex = 0;
-  static const List<Widget> _widgetOptions = <Widget>[
-    FriendsPage(),
-    BelongingsPage(),
-    BorrowingPage()
+  static final List<Widget> _widgetOptions = <Widget>[
+    const FriendsPage(),
+    const BelongingsPage(),
+    const BorrowingPage(),
+    Settings(),
   ];
 
   void _onItemTapped(int index) {
@@ -55,9 +57,14 @@ class _MyAppState extends State<MyApp> {
               icon: Icon(Icons.move_to_inbox),
               label: 'Borrowings',
             ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.settings),
+              label: 'Settings',
+            ),
           ],
           currentIndex: _selectedIndex,
           selectedItemColor: Colors.deepPurple,
+          unselectedItemColor: Colors.grey,
           onTap: _onItemTapped,
         ),
       ),

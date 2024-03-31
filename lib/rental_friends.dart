@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:rental_django_frontend/globals.dart';
 
 class FriendsPage extends StatefulWidget {
   const FriendsPage({super.key});
@@ -12,7 +13,7 @@ class _FriendsPageState extends State<FriendsPage> {
   final TextEditingController _controller = TextEditingController();
 
   Future<void> _sendPostRequest() async {
-    const String url = 'http://192.168.1.9:8080/api/v1/friends/';
+    String url = 'http://${Globals.ipAddress}/api/v1/friends/';
     final String name = _controller.text;
 
     try {

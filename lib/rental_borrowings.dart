@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
+import 'package:rental_django_frontend/globals.dart';
+
 class BorrowingPage extends StatefulWidget {
   const BorrowingPage({super.key});
 
@@ -16,7 +18,7 @@ class _BorrowingPageState extends State<BorrowingPage> {
   DateTime? _returnedDate;
 
   Future<List<Map<String, dynamic>>> fetchItems() async {
-    const String url = 'http://192.168.1.9:8080/api/v1/belongings/';
+    String url = 'http://${Globals.ipAddress}/api/v1/belongings/';
     final response = await http.get(Uri.parse(url));
 
     if (response.statusCode == 200) {
@@ -32,7 +34,7 @@ class _BorrowingPageState extends State<BorrowingPage> {
   }
 
   Future<List<Map<String, dynamic>>> fetchFriends() async {
-    const String url = 'http://192.168.1.9:8080/api/v1/friends/';
+    String url = 'http://${Globals.ipAddress}/api/v1/friends/';
     final response = await http.get(Uri.parse(url));
 
     if (response.statusCode == 200) {
@@ -202,7 +204,7 @@ class _BorrowingPageState extends State<BorrowingPage> {
   }
 
   Future<void> _sendPostRequest() async {
-    const String url = 'http://192.168.1.9:8080/api/v1/borrowings/';
+    String url = 'http://${Globals.ipAddress}/api/v1/borrowings/';
     final int whatId = _selectedWhatId ?? 0;
     final int toWhoId = _selectedToWhoId ?? 0;
 
@@ -210,7 +212,6 @@ class _BorrowingPageState extends State<BorrowingPage> {
         ? _returnedDate!.toUtc().toIso8601String().split('.')[0] + 'Z'
         : null;
 
-    // Prepare the request body as a JSON string
     final String body = jsonEncode({
       'what': whatId,
       'to_who': toWhoId,
