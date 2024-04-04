@@ -22,7 +22,6 @@ class _MyAppState extends State<MyApp> {
     const FriendsPage(),
     const BelongingsPage(),
     const BorrowingPage(),
-    const UpdatePage(),
     Settings(),
   ];
 
