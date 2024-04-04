@@ -12,12 +12,13 @@ class Settings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFF332d41),
       appBar: AppBar(
         title: const Text(
-          'Belongings Form',
-          style: TextStyle(color: Colors.white),
+          'Settings',
+          style: TextStyle(color: Color(0xFFd2c0ff)),
         ),
-        backgroundColor: Colors.deepPurple,
+        backgroundColor: const Color(0xFF332d41),
       ),
       body: Center(
         child: Column(
@@ -27,8 +28,12 @@ class Settings extends StatelessWidget {
               width: 300,
               child: TextField(
                 controller: _controller,
+                style: const TextStyle(color: Color(0xFFd2c0ff)),
                 decoration: const InputDecoration(
-                  labelText: 'Backend IP and Port',
+                  filled: true,
+                  fillColor: Color(0xFF1e192b),
+                  labelText: 'IP and Port Number',
+                  labelStyle: TextStyle(color: Color(0xFFd2c0ff)),
                   border: OutlineInputBorder(),
                 ),
               ),
@@ -37,8 +42,8 @@ class Settings extends StatelessWidget {
             ElevatedButton(
               onPressed: _changeIP,
               style: ElevatedButton.styleFrom(
-                foregroundColor: Colors.white,
-                backgroundColor: Colors.deepPurple,
+                foregroundColor: const Color(0xFFd2c0ff),
+                backgroundColor: const Color(0xFF4f378a),
               ),
               child: const Text('Submit'),
             ),

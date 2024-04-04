@@ -52,11 +52,13 @@ class _FriendsPageState extends State<FriendsPage> {
               width: 300,
               child: TextField(
                 controller: _controller,
+                style: const TextStyle(color: Color(0xFFd2c0ff)),
                 decoration: const InputDecoration(
                   filled: true,
                   fillColor: Color(0xFF1e192b),
                   labelText: 'Friends Name',
                   labelStyle: TextStyle(color: Color(0xFFd2c0ff)),
+                  border: OutlineInputBorder(),
                 ),
               ),
             ),

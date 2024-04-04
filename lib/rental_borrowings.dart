@@ -86,12 +86,13 @@ class _BorrowingPageState extends State<BorrowingPage> {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: Scaffold(
+        backgroundColor: const Color(0xFF332d41),
         appBar: AppBar(
           title: const Text(
             'Borrowed Form',
-            style: TextStyle(color: Colors.white),
+            style: TextStyle(color: Color(0xFFd2c0ff)),
           ),
-          backgroundColor: Colors.deepPurple,
+          backgroundColor: const Color(0xFF332d41),
         ),
         body: Center(
           child: Column(
@@ -114,13 +115,20 @@ class _BorrowingPageState extends State<BorrowingPage> {
                             (Map<String, dynamic> item) {
                           return DropdownMenuItem<int>(
                             value: item['id'],
-                            child: Text(item['name'].toString()),
+                            child: Text(
+                              item['name'].toString(),
+                              style: const TextStyle(color: Color(0xFFd2c0ff)),
+                            ),
                           );
                         }).toList(),
                         decoration: const InputDecoration(
-                          labelText: 'Friend Name',
+                          filled: true,
+                          fillColor: Color(0xFF1e192b),
+                          labelText: 'Friends Name',
+                          labelStyle: TextStyle(color: Color(0xFFd2c0ff)),
                           border: OutlineInputBorder(),
                         ),
+                        dropdownColor: const Color(0xFF1e192b),
                       ),
                     );
                   } else if (snapshot.hasError) {
@@ -147,13 +155,20 @@ class _BorrowingPageState extends State<BorrowingPage> {
                             (Map<String, dynamic> item) {
                           return DropdownMenuItem<int>(
                             value: item['id'],
-                            child: Text(item['name'].toString()),
+                            child: Text(
+                              item['name'].toString(),
+                              style: const TextStyle(color: Color(0xFFd2c0ff)),
+                            ),
                           );
                         }).toList(),
                         decoration: const InputDecoration(
+                          filled: true,
+                          fillColor: Color(0xFF1e192b),
                           labelText: 'Item Name',
+                          labelStyle: TextStyle(color: Color(0xFFd2c0ff)),
                           border: OutlineInputBorder(),
                         ),
+                        dropdownColor: const Color(0xFF1e192b),
                       ),
                     );
                   } else if (snapshot.hasError) {
@@ -174,13 +189,17 @@ class _BorrowingPageState extends State<BorrowingPage> {
                   child: SizedBox(
                     width: 300,
                     child: TextField(
+                      style: const TextStyle(color: Color(0xFFd2c0ff)),
                       controller: TextEditingController(
                           text: _returnedDate != null
                               ? DateFormat('yyyy-MM-ddTHH:mm:ss')
                                   .format(_returnedDate!)
                               : ''),
                       decoration: const InputDecoration(
-                        labelText: 'Returned',
+                        filled: true,
+                        fillColor: Color(0xFF1e192b),
+                        labelText: 'Return Date & Time',
+                        labelStyle: TextStyle(color: Color(0xFFd2c0ff)),
                         border: OutlineInputBorder(),
                       ),
                     ),
@@ -191,8 +210,8 @@ class _BorrowingPageState extends State<BorrowingPage> {
               ElevatedButton(
                 onPressed: _sendPostRequest,
                 style: ElevatedButton.styleFrom(
-                  foregroundColor: Colors.white,
-                  backgroundColor: Colors.deepPurple,
+                  foregroundColor: const Color(0xFFd2c0ff),
+                  backgroundColor: const Color(0xFF4f378a),
                 ),
                 child: const Text('Submit'),
               ),

@@ -51,11 +51,13 @@ class _BelongingsPageState extends State<BelongingsPage> {
               width: 300,
               child: TextField(
                 controller: _controller,
+                style: const TextStyle(color: Color(0xFFd2c0ff)),
                 decoration: const InputDecoration(
                   filled: true,
                   fillColor: Color(0xFF1e192b),
                   labelText: 'Item Name',
                   labelStyle: TextStyle(color: Color(0xFFd2c0ff)),
+                  border: OutlineInputBorder(),
                 ),
               ),
             ),
