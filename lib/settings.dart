@@ -45,7 +45,7 @@ class Settings extends StatelessWidget {
                 foregroundColor: const Color(0xFFd2c0ff),
                 backgroundColor: const Color(0xFF4f378a),
               ),
-              child: const Text('Submit'),
+              child: const Text('Set'),
             ),
           ],
         ),

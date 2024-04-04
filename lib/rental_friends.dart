@@ -23,13 +23,27 @@ class _FriendsPageState extends State<FriendsPage> {
         body: {'name': name},
       );
 
-      if (response.statusCode == 200) {
-        print('Response data: ${response.body}');
+      if (response.statusCode == 201) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text(
+              'Friend Name Succesfully Sent!',
+              style: TextStyle(color: Color(0xFFd2c0ff)),
+            ),
+            backgroundColor: Color(0xFF4f378a),
+          ),
+        );
+        _controller.clear();
       } else {
         throw Exception('Failed to send POST request');
       }
     } catch (e) {
-      print('Error: $e');
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Request failed: $e'),
+          backgroundColor: const Color(0xFF7D5260),
+        ),
+      );
     }
   }
 

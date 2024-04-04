@@ -246,15 +246,26 @@ class _BorrowingPageState extends State<BorrowingPage> {
         body: body,
       );
 
-      if (response.statusCode == 200) {
-        print('Response data: ${response.body}');
+      if (response.statusCode == 201) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text(
+              'Borrowing Form Sent!',
+              style: TextStyle(color: Color(0xFFd2c0ff)),
+            ),
+            backgroundColor: Color(0xFF4f378a),
+          ),
+        );
       } else {
-        print('Response status: ${response.statusCode}');
-        print('Response body: ${response.body}');
         throw Exception('Failed to send POST request');
       }
     } catch (e) {
-      print('Error: $e');
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Failed to send Form: $e'),
+          backgroundColor: const Color(0xFF7D5260),
+        ),
+      );
     }
   }
 }
