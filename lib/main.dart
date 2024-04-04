@@ -3,6 +3,7 @@ import 'package:rental_django_frontend/rental_belongings.dart';
 import 'package:rental_django_frontend/rental_borrowings.dart';
 import 'package:rental_django_frontend/rental_friends.dart';
 import 'package:rental_django_frontend/settings.dart';
+import 'package:rental_django_frontend/update_delete.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,6 +22,7 @@ class _MyAppState extends State<MyApp> {
     const FriendsPage(),
     const BelongingsPage(),
     const BorrowingPage(),
+    const UpdatePage(),
     Settings(),
   ];
 
@@ -35,11 +37,10 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-        primaryColor: Colors.white,
-        hintColor: Colors.deepPurple,
+        canvasColor: const Color(0xFF332d41),
       ),
       home: Scaffold(
+        backgroundColor: const Color(0xFF332d41),
         body: Center(
           child: _widgetOptions.elementAt(_selectedIndex),
         ),
@@ -63,8 +64,8 @@ class _MyAppState extends State<MyApp> {
             ),
           ],
           currentIndex: _selectedIndex,
-          selectedItemColor: Colors.deepPurple,
-          unselectedItemColor: Colors.grey,
+          selectedItemColor: const Color(0xFFd2c0ff),
+          unselectedItemColor: const Color(0xFF1e192b),
           onTap: _onItemTapped,
         ),
       ),

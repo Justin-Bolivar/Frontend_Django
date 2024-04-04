@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
 import 'package:rental_django_frontend/globals.dart';
 
@@ -35,12 +36,13 @@ class _FriendsPageState extends State<FriendsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFF332d41),
       appBar: AppBar(
         title: const Text(
           'Friends Form',
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: Color(0xFFd2c0ff)),
         ),
-        backgroundColor: Colors.deepPurple,
+        backgroundColor: const Color(0xFF332d41),
       ),
       body: Center(
         child: Column(
@@ -51,8 +53,10 @@ class _FriendsPageState extends State<FriendsPage> {
               child: TextField(
                 controller: _controller,
                 decoration: const InputDecoration(
+                  filled: true,
+                  fillColor: Color(0xFF1e192b),
                   labelText: 'Friends Name',
-                  border: OutlineInputBorder(),
+                  labelStyle: TextStyle(color: Color(0xFFd2c0ff)),
                 ),
               ),
             ),
@@ -60,8 +64,8 @@ class _FriendsPageState extends State<FriendsPage> {
             ElevatedButton(
               onPressed: _sendPostRequest,
               style: ElevatedButton.styleFrom(
-                foregroundColor: Colors.white,
-                backgroundColor: Colors.deepPurple,
+                foregroundColor: const Color(0xFFd2c0ff),
+                backgroundColor: const Color(0xFF4f378a),
               ),
               child: const Text('Submit'),
             ),
