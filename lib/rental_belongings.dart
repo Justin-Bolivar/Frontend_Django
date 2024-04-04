@@ -35,12 +35,13 @@ class _BelongingsPageState extends State<BelongingsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFF332d41),
       appBar: AppBar(
         title: const Text(
           'Belongings Form',
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: Color(0xFFd2c0ff)),
         ),
-        backgroundColor: Colors.deepPurple,
+        backgroundColor: const Color(0xFF332d41),
       ),
       body: Center(
         child: Column(
@@ -51,8 +52,10 @@ class _BelongingsPageState extends State<BelongingsPage> {
               child: TextField(
                 controller: _controller,
                 decoration: const InputDecoration(
+                  filled: true,
+                  fillColor: Color(0xFF1e192b),
                   labelText: 'Item Name',
-                  border: OutlineInputBorder(),
+                  labelStyle: TextStyle(color: Color(0xFFd2c0ff)),
                 ),
               ),
             ),
@@ -60,8 +63,8 @@ class _BelongingsPageState extends State<BelongingsPage> {
             ElevatedButton(
               onPressed: _sendPostRequest,
               style: ElevatedButton.styleFrom(
-                foregroundColor: Colors.white,
-                backgroundColor: Colors.deepPurple,
+                foregroundColor: const Color(0xFFd2c0ff),
+                backgroundColor: const Color(0xFF4f378a),
               ),
               child: const Text('Submit'),
             ),
